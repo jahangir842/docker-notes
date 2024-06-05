@@ -1,0 +1,7 @@
+redmine-docker-mariadb/redmine_data/
+/redmine-docker-mariadb/redmine_plugins/
+/redmine-docker-mariadb/mariadb_data/
+/redmine-docker-mysql/redmine_data/
+/redmine-docker-mysql/redmine_plugins/
+/redmine-docker-mysql/mariadb_data/
+/prometheus_grafana/data/
