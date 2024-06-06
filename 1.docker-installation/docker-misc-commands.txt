@@ -1,14 +1,33 @@
 
 ********************************************************************************
 terminal access of container
-	sudo docker exec -it prometheus sh
+sudo docker exec -it prometheus sh
 ********************************************************************************
 			Delete all volumes at once
 ********************************************************************************
-	sudo docker volume ls | sudo awk '{if(NR>1) print $2}' | sudo xargs docker volume rm
+sudo docker volume ls | sudo awk '{if(NR>1) print $2}' | sudo xargs docker volume rm
+
 
 
 ********************************************************************************
+			Delete all Instances at once
+********************************************************************************
+docker stop $(docker ps -aq) && docker rm $(docker ps -aq)
+
+********************************************************************************
+			Delete all Images at once
+********************************************************************************
+
+docker rmi -f $(docker images -q)
+
+
+********************************************************************************
+			Delete all Images at once
+********************************************************************************
+
+docker rmi -f $(docker images -q)		
+			
+********************************************************************************		
 		Failed to connect. Is Docker running? (Vs Code)
 ********************************************************************************
 Docker extention in VS Code.

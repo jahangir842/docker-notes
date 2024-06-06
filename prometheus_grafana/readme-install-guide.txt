@@ -67,7 +67,8 @@ volumes:
 ave this file as `docker-compose.yml` in the `prometheus_grafana` directory.
 **************************************************************************************             
 permission to the data folder will be required to run prometheus container	
-	sudo chmod -R 777 ./data    
+	sudo chmod -R 777 ./data 
+	sudo chmod -R 777 ./grafana-storage   
 **************************************************************************************
 Run Docker Compose on Offline System
 
