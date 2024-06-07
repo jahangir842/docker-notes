@@ -35,21 +35,23 @@ Save this file as `prometheus.yml` in the `prometheus_grafana` directory
 **************************************************************************************
 Create the Docker Compose file (`docker-compose.yml`)
 **************************************************************************************
-version: '3.7'
+version: '3.8'
 
 services:
   prometheus:
     image: prom/prometheus
     container_name: prometheus
+    restart: unless-stopped
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
-      - ./data:/prometheus
+      - prometheus-storage:/prometheus
     ports:
       - "9090:9090"
 
   grafana:
     image: grafana/grafana
     container_name: grafana
+    restart: unless-stopped
     ports:
       - "3000:3000"
     environment:
@@ -60,11 +62,14 @@ services:
 
 volumes:
   grafana-storage:
+  prometheus-storage:
 
-         
- 
 **************************************************************************************
-ave this file as `docker-compose.yml` in the `prometheus_grafana` directory.
+Grafana Persistant Data:
+**************************************************************************************     
+ By default, Grafana uses an embedded SQLite version 3 database to store configuration, users, dashboards, and other data in /var/lib/grafana
+**************************************************************************************
+Save this file as `docker-compose.yml` in the `prometheus_grafana` directory.
 **************************************************************************************             
 permission to the data folder will be required to run prometheus container	
 	sudo chmod -R 777 ./data 
