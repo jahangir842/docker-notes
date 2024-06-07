@@ -60,7 +60,8 @@ Enable and start the Node Exporter service:**
    sudo systemctl start node_exporter
 
 **************************************************************************************
-
+Restart the system if services having errors
+**************************************************************************************
 Edit the Prometheus configuration file (prometheus.yml):**
 
    sudo vim /etc/prometheus/prometheus.yml
@@ -88,12 +89,36 @@ Restart Prometheus
    sudo systemctl status node_exporter
 
 **************************************************************************************	
-2. **Verify Prometheus is scraping the Node Exporter:**
+
+Test Connectivity in terminal:
+
+
+    curl http://<your_rocky_linux_ip>:9100/metrics
+
+**************************************************************************************
+Test Connectivit in browser:
+
+Verify Prometheus is scraping the Node Exporter:**
 
    Open your Prometheus web interface (usually available at `http://<prometheus-server-IP>:9090`) and go to `Status -> Targets`. You should see the Node Exporter listed and marked as `UP`.
 
 **************************************************************************************
+configure the firewall (if enabled)
+**************************************************************************************
+    Check the Firewall Status:
 
+	sudo firewall-cmd --state
+	sudo firewall-cmd --list-all
+**************************************************************************************
+Allow Port 9100:
+
+sudo firewall-cmd --permanent --add-port=9100/tcp
+sudo firewall-cmd --reload
+**************************************************************************************
+Verify the Change:
+
+sudo firewall-cmd --list-all
+**************************************************************************************
 
 
 

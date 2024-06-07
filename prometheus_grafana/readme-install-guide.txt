@@ -86,6 +86,54 @@ Start the services using Docker Compose:**
    docker-compose up -d
   
 **************************************************************************************
+start Docker containers automatically using Docker Compose
+**************************************************************************************
+Create a systemd service file:
+
+sudo nano /etc/systemd/system/docker-compose-app.service
+**************************************************************************************
+Define the systemd service:
+**************************************************************************************
+
+[Unit]
+Description=Prometheus
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+WorkingDirectory=/home/username/myproject
+ExecStart=/usr/local/bin/docker-compose up
+ExecStop=/usr/local/bin/docker-compose down
+Restart=always
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
+
+**************************************************************************************
+Replace /home/username/myproject with the path to your Docker Compose file. Also, replace username with your actual username.
+**************************************************************************************
+Reload systemd and enable the service:
+
+	sudo systemctl daemon-reload
+	sudo systemctl enable docker-compose-app.service
+
+**************************************************************************************
+Start the service:
+
+	sudo systemctl start docker-compose-app.service
+**************************************************************************************
+Check the status:
+
+	sudo systemctl status docker-compose-app.service
+**************************************************************************************
+If you need to make any changes to your Docker Compose setup, simply modify your docker-compose.yml file and restart the service using:
+
+	sudo systemctl restart docker-compose-app.service
+
+
+**************************************************************************************
 
 Access the prometheus:
 	http://localhost:9090

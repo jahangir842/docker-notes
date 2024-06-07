@@ -32,7 +32,15 @@ Restart Prometheus
 	
 **************************************************************************************	
 
-Check Prometheus Targets:**
-   - Open the Prometheus web UI (usually at `http://<prometheus-server>:9090/targets`).
-   - Verify that the Windows exporter target is listed and marked as UP.
+Test Connectivity in terminal:
+
+
+    curl http://<your_rocky_linux_ip>:9100/metrics
+
+**************************************************************************************
+Test Connectivit in browser:
+
+Verify Prometheus is scraping the Node Exporter:**
+
+   Open your Prometheus web interface (usually available at `http://<prometheus-server-IP>:9090`) and go to `Status -> Targets`. You should see the Node Exporter listed and marked as `UP`.
 **************************************************************************************	
