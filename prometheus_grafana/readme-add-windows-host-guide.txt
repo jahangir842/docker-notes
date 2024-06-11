@@ -35,7 +35,7 @@ Restart Prometheus
 Test Connectivity in terminal:
 
 
-    curl http://<your_rocky_linux_ip>:9100/metrics
+    curl http://<your_rocky_linux_ip>:9182/metrics
 
 **************************************************************************************
 Test Connectivit in browser:

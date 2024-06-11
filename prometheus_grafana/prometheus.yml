@@ -5,10 +5,11 @@
      - job_name: 'prometheus'
        static_configs:
          - targets: ['prometheus:9090']
+     - job_name: 'Linux'
+       static_configs:
+         - targets: ['192.168.1.113:9100']
+         - targets: ['192.168.1.133:9182']
+
      - job_name: 'Servers'
        static_configs:
-         - targets: ['192.168.1.131:9182']
-         - targets: ['192.168.1.132:9182']
-         - targets: ['192.168.1.133:9182']
-         - targets: ['192.168.1.201:9100']
-
+         - targets: ['192.168.1.130:9100']

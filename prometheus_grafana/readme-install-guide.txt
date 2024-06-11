@@ -86,7 +86,7 @@ Start the services using Docker Compose:**
    docker-compose up -d
   
 **************************************************************************************
-start Docker containers automatically using Docker Compose
+start Docker containers automatically using Docker Compose (optional) (docker-compose.yml can also restart it)
 **************************************************************************************
 Create a systemd service file:
 

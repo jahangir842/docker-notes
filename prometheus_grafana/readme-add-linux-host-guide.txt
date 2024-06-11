@@ -13,10 +13,12 @@ Extract the archive:**
 
    tar xvfz node_exporter-1.5.0.linux-amd64.tar.gz
    cd node_exporter-1.5.0.linux-amd64
+   sudo cp node_exporter /usr/local/bin/
+   
 **************************************************************************************
 To run the Node Exporter Temporarily
-
-   ./node_exporter
+	cd /usr/local/bin
+	./node_exporter
 **************************************************************************************
 To run the Node Exporter as a Permanant service, you can create a systemd service file:
 
@@ -64,7 +66,7 @@ Restart the system if services having errors
 **************************************************************************************
 Edit the Prometheus configuration file (prometheus.yml):**
 
-   sudo vim /etc/prometheus/prometheus.yml
+   sudo nano /etc/prometheus/prometheus.yml
 
 Add a new job for the Node Exporter:**
 **************************************************************************************
