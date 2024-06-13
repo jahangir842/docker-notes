@@ -8,6 +8,7 @@ Download Prometheus Docker Image on Online System
    
    docker pull prom/prometheus
    docker pull grafana/grafana
+   docker pull gitlab/gitlab-ce
 
    
 ********************************************************************************
@@ -16,6 +17,7 @@ Download Prometheus Docker Image on Online System
    
    docker save -o prometheus.tar prom/prometheus
    docker save -o grafana.tar grafana/grafana
+   docker save -o gitlab.tar gitlab/gitlab-ce
 
    
 ********************************************************************************
