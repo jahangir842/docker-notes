@@ -6,3 +6,6 @@
 /redmine-docker-mysql/mariadb_data/
 /prometheus_grafana/data/
 /prometheus_grafana/grafana-storage/
+/gitlab/logs/
+/gitlab/data/
+/gitlab/config/

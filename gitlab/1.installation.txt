@@ -1,0 +1,149 @@
+To install the GitLab Community Edition (CE) using Docker, you need to pull the `gitlab/gitlab-ce` image instead of the `gitlab/gitlab-ee` (Enterprise Edition) image. Below are the updated steps to install GitLab CE with Docker.
+
+### Step-by-Step Guide for GitLab CE
+************************************************************************************
+#### 1. Create a Directory for GitLab
+************************************************************************************
+mkdir gitlab-ce-docker
+cd gitlab-ce-docker
+```
+
+#### 2. Create a `docker-compose.yml` File
+Create a `docker-compose.yml` file with the following content:
+************************************************************************************
+version: '3.7'
+
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: 'gitlab.example.com'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab.example.com'
+        gitlab_rails['gitlab_shell_ssh_port'] = 2222
+    ports:
+      - '80:80'
+      - '443:443'
+      - '2222:22'
+    volumes:
+      - './config:/etc/gitlab'
+      - './logs:/var/log/gitlab'
+      - './data:/var/opt/gitlab'
+************************************************************************************
+#### 3. Start GitLab Using Docker Compose
+Run the following command to start GitLab CE:
+
+```sh
+docker-compose up -d
+```
+
+This command will pull the `gitlab/gitlab-ce` image and start the GitLab services in detached mode.
+
+#### 4. Access GitLab
+Once the containers are up and running, you can access GitLab in your web browser by navigating to `http://gitlab.example.com` (replace with your configured hostname). You will need to set up the root password the first time you log in.
+
+#### Example Steps
+
+1. **Create a Directory for GitLab CE**:
+    ```sh
+    mkdir gitlab-ce-docker
+    cd gitlab-ce-docker
+    ```
+
+2. **Create the `docker-compose.yml` File**:
+    ```sh
+    nano docker-compose.yml
+    ```
+
+    Paste the `docker-compose.yml` content provided above.
+
+3. **Start GitLab CE Using Docker Compose**:
+    ```sh
+    docker-compose up -d
+    ```
+
+4. **Access GitLab**:
+    Open your web browser and navigate to `http://gitlab.example.com`.
+
+### Notes
+- Ensure the ports 80, 443, and 2222 are available on your host machine.
+- For cloud deployments, ensure the corresponding security groups and firewall rules allow traffic on these ports.
+
+### Customizing Further
+
+If you need to customize GitLab CE further, such as using a different hostname, changing ports, or adding more configurations, you can adjust the `docker-compose.yml` file accordingly. Here are some common customizations:
+
+#### Changing Hostname and Ports
+```yaml
+hostname: 'gitlab.yourdomain.com'
+ports:
+  - '8080:80'   # Change external port 80 to 8080
+  - '8443:443'  # Change external port 443 to 8443
+  - '2222:22'   # SSH port remains the same
+```
+
+#### Additional Environment Variables
+Add more configurations in the `environment` section if needed:
+```yaml
+environment:
+  GITLAB_OMNIBUS_CONFIG: |
+    external_url 'http://gitlab.yourdomain.com'
+    gitlab_rails['gitlab_shell_ssh_port'] = 2222
+    unicorn['worker_processes'] = 3  # Example of setting Unicorn workers
+```
+
+By following these steps and customizing the configuration as needed, you can successfully set up GitLab Community Edition using Docker.
+
+
+************************************************************************************
+version: '3.7'
+
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: 'gitlab.example.com'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab.example.com'
+        gitlab_rails['gitlab_shell_ssh_port'] = 2222
+    ports:
+      - '80:80'
+      - '443:443'
+      - '2222:22'
+    volumes:
+      - './config:/etc/gitlab'
+      - './logs:/var/log/gitlab'
+      - './data:/var/opt/gitlab'
+
+
+************************************************************************************
+Steps to Retrieve the Default Root Password
+************************************************************************************
+Check the Initial Root Password:
+The initial root password is typically stored in a file inside the GitLab container. You can retrieve it using the following commands:
+
+	docker exec -it gitlab grep 'Password:' /etc/gitlab/initial_root_password
+
+This command logs into the running GitLab container and looks for the initial root password file.
+************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
