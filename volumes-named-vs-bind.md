@@ -1,4 +1,12 @@
-The difference between `./redmine_data:/usr/src/redmine/files` and `redmine_data:/usr/src/redmine/files` in Docker volume syntax lies in the type of volume being used and its implications:
+### Named Volume vs Bind Volume
+
+The difference between 
+```
+./redmine_data:/usr/src/redmine/files
+and 
+redmine_data:/usr/src/redmine/files
+```
+in Docker volume syntax lies in the type of volume being used and its implications:
 
 1. **`./redmine_data:/usr/src/redmine/files`**: This is a **bind mount**.
 2. **`redmine_data:/usr/src/redmine/files`**: This is a **named volume**.
