@@ -135,6 +135,11 @@ docker run -d --name dev_container -v $(pwd)/app:/app node:14
 
 Changes made to files in the `app` directory on your host machine will be reflected inside the `/app` directory in the container.
 
+### Default Location for Docker Volumes
+
+Linux: /var/lib/docker/volumes/
+Windows: C:\ProgramData\Docker\volumes\
+
 ### Best Practices for Using Volumes
 
 1. **Use Named Volumes for Persistent Data**: Named volumes are managed by Docker, making them ideal for persisting data across container restarts and sharing data between containers.
