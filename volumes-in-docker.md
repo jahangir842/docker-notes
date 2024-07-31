@@ -138,6 +138,7 @@ Changes made to files in the `app` directory on your host machine will be reflec
 ### Default Location for Docker Volumes
 
 Linux: /var/lib/docker/volumes/
+
 Windows: C:\ProgramData\Docker\volumes\
 
 ### Best Practices for Using Volumes
