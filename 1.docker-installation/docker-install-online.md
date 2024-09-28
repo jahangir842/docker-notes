@@ -1,8 +1,6 @@
-Sure! Here’s a rewritten version of the instructions for installing Docker on an offline Ubuntu system:
+## Installing Docker on Offline Ubuntu
 
----
-
-### Installing Docker on Offline Ubuntu
+https://docs.docker.com/engine/install/ubuntu/
 
 To set up Docker on Ubuntu, follow these steps:
 
