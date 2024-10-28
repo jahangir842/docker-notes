@@ -23,6 +23,12 @@ docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
   docker commit -a "John Doe <john@example.com>" mycontainer myimage:latest
   ```
 
+or we can use the version number instead:
+
+  ```bash
+  docker commit -a "John Doe <john@example.com>" mycontainer myimage:V1.0
+  ```
+
 - `-m`, `--message`: Add a commit message to describe the changes made in the new image.
   
   Example:
