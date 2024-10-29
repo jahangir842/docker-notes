@@ -33,7 +33,7 @@ For quick reference, here are all the commands you'll need to run:
 ```bash  
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.17.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose  
 sudo chmod +x /usr/local/bin/docker-compose  
-docker-compose --version  
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose    
 ```
 
 By completing these steps, you will successfully install Docker Compose on your Ubuntu system, enabling you to manage multi-container Docker applications effectively.
