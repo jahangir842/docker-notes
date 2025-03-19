@@ -9,14 +9,7 @@ Check the installed drivers:
 ```bash
 nvidia-smi
 ```
-If not installed, install them using:
-
-### **Ubuntu**
-```bash
-sudo apt update
-sudo apt install -y nvidia-driver-535  # Replace with the latest version
-reboot
-```
+If not installed, install them [using](https://github.com/jahangir842/linux-notes/blob/main/drivers/ubuntu/nvidia-graphics-drivers.md):
 
 ---
 
