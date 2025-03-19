@@ -1,7 +1,3 @@
-To access a **GPU** in Docker, follow these steps:
-
----
-
 ## **1. Install NVIDIA Drivers**
 Ensure that your host machine has NVIDIA drivers installed.
 
