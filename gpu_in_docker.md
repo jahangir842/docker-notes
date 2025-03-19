@@ -41,7 +41,7 @@ sudo systemctl restart docker
 ## **3. Verify GPU Support in Docker**
 Run the following command to check if Docker can detect the GPU:
 ```bash
-docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi
+docker run --rm --gpus all nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04 nvidia-smi
 ```
 This should output details about your GPU.
 
@@ -62,7 +62,7 @@ docker run --rm --gpus '"device=0"' ubuntu nvidia-smi
 version: '3.8'
 services:
   my_app:
-    image: my_cuda_image
+    image: nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04
     deploy:
       resources:
         reservations:
