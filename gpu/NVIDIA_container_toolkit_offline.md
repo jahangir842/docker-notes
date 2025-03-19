@@ -15,29 +15,7 @@ docker --version # Check Docker version
 ### **Step 2: Download NVIDIA Container Toolkit Packages**
 On an online machine, download the required `.deb` or `.rpm` packages:
 
-#### **For Ubuntu/Debian**
-```bash
-mkdir nvidia-container-toolkit
-cd nvidia-container-toolkit
-
-# Download NVIDIA Container Toolkit
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/nvidia-container-toolkit_1.14.1-1_amd64.deb
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/nvidia-container-runtime_3.14.1-1_amd64.deb
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libnvidia-container-tools_1.14.1-1_amd64.deb
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libnvidia-container1_1.14.1-1_amd64.deb
-```
-
-#### **For RHEL/CentOS/Rocky Linux (RPM)**
-```bash
-mkdir nvidia-container-toolkit
-cd nvidia-container-toolkit
-
-# Download NVIDIA Container Toolkit
-wget https://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/nvidia-container-toolkit-1.14.1-1.x86_64.rpm
-wget https://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/nvidia-container-runtime-3.14.1-1.x86_64.rpm
-wget https://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/libnvidia-container-tools-1.14.1-1.x86_64.rpm
-wget https://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/libnvidia-container1-1.14.1-1.x86_64.rpm
-```
+https://github.com/NVIDIA/nvidia-container-toolkit/releases
 
 ---
 
